@@ -17,7 +17,6 @@ section{
     width: 50em;
     height: 32em;
     text-align: center;
-    border: 1px solid #000;
 
 }
 
@@ -27,18 +26,32 @@ section{
 .text-area1{
     color: #0A3871;
     background: #E5E5E5;
-    font-size: 20px;
+    font-size: 30px;
+    margin-bottom: 12px;
+    border: none;
+    resize: none;
+}
+::placeholder{
+    color: #0A3871;
+    font-size: 30px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+
 }
 .btn-encriptado{
     text-align: center;
 }
 .mensaje{
-    font-size: 12px;
-    border: 1px solid #0A3871;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+.mensaje span{
+    margin-right:19.3em;
 }
 .btn-encriptar{
-    width: 14em;
-    height: 2.5em;
+    width: 18em;
+    height: 3em;
     border-radius: 16px;
     background: #0A3871;
     color: #D8DFE8;
@@ -46,8 +59,8 @@ section{
     
 }
 .btn-desencriptar{
-    width: 14em;
-    height: 2.5em;
+    width: 18em;
+    height: 3em;
     border-radius: 16px;
     background: #D8DFE8;
     color: #0A3871;
@@ -57,7 +70,6 @@ section{
     text-align: center;
     margin: 1.5em;
     display: inline-block;
-    border: 1px solid #000;
     width: 20em;
     height: 32em;
     border-radius: 20px;
