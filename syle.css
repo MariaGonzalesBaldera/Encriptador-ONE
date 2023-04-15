@@ -1,0 +1,65 @@
+body{
+    margin: 2em 0;
+    padding: 0;
+    background: #E5E5E5;
+    font-family: 'Inter', sans-serif;
+}
+.logo{
+    width: 8em;
+}
+
+section{
+    margin: 2em;    
+}
+
+.texto1{
+    display: inline-block;    
+    width: 50em;
+    height: 32em;
+    text-align: center;
+    border: 1px solid #000;
+
+}
+
+.div-texto{
+    display: grid;
+}
+.text-area1{
+    color: #0A3871;
+    background: #E5E5E5;
+    font-size: 20px;
+}
+.btn-encriptado{
+    text-align: center;
+}
+.mensaje{
+    font-size: 12px;
+    border: 1px solid #0A3871;
+}
+.btn-encriptar{
+    width: 14em;
+    height: 2.5em;
+    border-radius: 16px;
+    background: #0A3871;
+    color: #D8DFE8;
+    border: 1px solid #0A3871;
+    
+}
+.btn-desencriptar{
+    width: 14em;
+    height: 2.5em;
+    border-radius: 16px;
+    background: #D8DFE8;
+    color: #0A3871;
+    border: 1px solid #0A3871;
+}
+.texto2{
+    text-align: center;
+    margin: 1.5em;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 20em;
+    height: 32em;
+    border-radius: 20px;
+    background: #fff;
+}
