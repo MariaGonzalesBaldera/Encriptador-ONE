@@ -5,8 +5,6 @@ const textoRespuesta = document.querySelector('.text-area2');
 const divEncontrado = document.querySelector('.div-texto2-encontrado');
 const btnCopiar = document.querySelector('.btn-copiar');
 
-
-
 btnEncriptar.addEventListener('click',(event)=>{
     event.preventDefault();
     const textoIngresado = texto1.value
@@ -27,8 +25,8 @@ btnDesencriptar.addEventListener('click',(event)=>{
 })
 //falta terminar
 btnCopiar.addEventListener('click',(event)=>{
-    event.defaultPrevented()
-
+    event.preventDefault()
+    navigator.clipboard.writeText(textoRespuesta.textContent)
 })
 
 function encriptarTexto(texto){
