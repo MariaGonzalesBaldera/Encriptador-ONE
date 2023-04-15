@@ -1,6 +1,37 @@
+const texto1 =  document.querySelector('.text-area1');
+const btnEncriptar = document.querySelector('.btn-encriptar');
+const btnDesencriptar = document.querySelector('.btn-desencriptar');
+const textoRespuesta = document.querySelector('.text-area2');
+const divEncontrado = document.querySelector('.div-texto2-encontrado');
+const btnCopiar = document.querySelector('.btn-copiar');
 
-function encriptarTexto(){
-    let texto = 'murcielago'
+
+
+btnEncriptar.addEventListener('click',(event)=>{
+    event.preventDefault();
+    const textoIngresado = texto1.value
+
+    if(textoIngresado.length > 0){
+        divEncontrado.style.display = 'inline-block';
+        textoRespuesta.textContent = encriptarTexto(textoIngresado)
+    }
+})
+btnDesencriptar.addEventListener('click',(event)=>{
+    event.preventDefault();
+    const textoIngresado = texto1.value
+
+    if(textoIngresado.length > 0){
+        divEncontrado.style.display = 'inline-block';
+        textoRespuesta.textContent = desencriptarTexto(textoIngresado)
+    }
+})
+//falta terminar
+btnCopiar.addEventListener('click',(event)=>{
+    event.defaultPrevented()
+
+})
+
+function encriptarTexto(texto){
     let guardado = ''
     for (let i = 0; i < texto.length; i++) {
         guardado+=texto[i]
@@ -25,12 +56,11 @@ function encriptarTexto(){
 
         }
     }
-    console.log(guardado)
+    return guardado;
 }
-encriptarTexto();
-function desencriptarTexto(){
-    let textoEncriptado = 'mufatrcimesenterlaigober'
-    let resultado = 'mufatrcimesenterlaigober'
+function desencriptarTexto(texto){
+    let textoEncriptado = texto
+    let resultado = texto
     
     for (let i = 0; i < textoEncriptado.length; i++) {
         
@@ -51,7 +81,6 @@ function desencriptarTexto(){
         }
     }
     
-    console.log(resultado)
+    return resultado
     
 }
-desencriptarTexto();
