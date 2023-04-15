@@ -4,30 +4,7 @@ const btnDesencriptar = document.querySelector('.btn-desencriptar');
 const textoRespuesta = document.querySelector('.text-area2');
 const divEncontrado = document.querySelector('.div-texto2-encontrado');
 const btnCopiar = document.querySelector('.btn-copiar');
-
-btnEncriptar.addEventListener('click',(event)=>{
-    event.preventDefault();
-    const textoIngresado = texto1.value
-
-    if(textoIngresado.length > 0){
-        divEncontrado.style.display = 'inline-block';
-        textoRespuesta.textContent = encriptarTexto(textoIngresado)
-    }
-})
-btnDesencriptar.addEventListener('click',(event)=>{
-    event.preventDefault();
-    const textoIngresado = texto1.value
-
-    if(textoIngresado.length > 0){
-        divEncontrado.style.display = 'inline-block';
-        textoRespuesta.textContent = desencriptarTexto(textoIngresado)
-    }
-})
-//falta terminar
-btnCopiar.addEventListener('click',(event)=>{
-    event.preventDefault()
-    navigator.clipboard.writeText(textoRespuesta.textContent)
-})
+const mensaje = document.querySelector('.mensaje');
 
 function encriptarTexto(texto){
     let guardado = ''
@@ -56,6 +33,7 @@ function encriptarTexto(texto){
     }
     return guardado;
 }
+
 function desencriptarTexto(texto){
     let textoEncriptado = texto
     let resultado = texto
@@ -81,4 +59,60 @@ function desencriptarTexto(texto){
     
     return resultado
     
+}
+
+btnEncriptar.addEventListener('click',(event)=>{
+    event.preventDefault();
+    const textoIngresado = texto1.value
+
+    if(textoIngresado.length > 0){
+        if(!validarMayuscula(textoIngresado) && !validarAcentos(textoIngresado)){
+            divEncontrado.style.display = 'inline-block';
+            textoRespuesta.textContent = encriptarTexto(textoIngresado)
+        }else{
+            saltarAlert();
+        }
+    }
+})
+
+btnDesencriptar.addEventListener('click',(event)=>{
+    event.preventDefault();
+    const textoIngresado = texto1.value
+
+    if(textoIngresado.length > 0){
+        if(!validarMayuscula(textoIngresado) && !validarAcentos(textoIngresado)){
+            divEncontrado.style.display = 'inline-block';
+            textoRespuesta.textContent = desencriptarTexto(textoIngresado)
+        }else{
+            saltarAlert();
+        }
+    }
+})
+
+btnCopiar.addEventListener('click',(event)=>{
+    event.preventDefault()
+    navigator.clipboard.writeText(textoRespuesta.textContent)
+})
+
+function validarMayuscula(texto){
+    for (let i = 0; i < texto.length; i++) {
+        if(texto[i] === texto[i].toUpperCase() && texto[i] !== texto[i].toLowerCase()){
+            return true;
+        }
+    }
+    return false;
+}
+function validarAcentos(texto) {
+    var patron = /[áéíóúÁÉÍÓÚ]/;
+    return patron.test(texto); 
+}
+
+function saltarAlert(){
+    setTimeout(function() {
+        mensaje.style.fontSize = "15px";
+
+        setTimeout(function() {
+            mensaje.style.fontSize = "13px";
+        }, 1000);
+      }, 500);
 }
