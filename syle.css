@@ -1,11 +1,11 @@
 body{
-    margin: 2em 0;
-    padding: 0;
+    margin: 0.1em 0;
+    padding: 2em;
     background: #E5E5E5;
     font-family: 'Inter', sans-serif;
 }
 .logo{
-    width: 8em;
+    width: 7em;
 }
 
 section{
@@ -24,6 +24,7 @@ section{
     display: grid;
 }
 .text-area1{
+    text-align: center;
     color: #0A3871;
     background: #E5E5E5;
     font-size: 30px;
@@ -68,10 +69,11 @@ section{
 }
 .texto2{
     text-align: center;
-    margin: 1.5em;
+    position: absolute;
+    margin: -6em 0;
     display: inline-block;
     width: 20em;
-    height: 32em;
+    height: 38.5em;
     border-radius: 20px;
     background: #fff;
 }
