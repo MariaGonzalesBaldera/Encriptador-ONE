@@ -7,31 +7,17 @@ const btnCopiar = document.querySelector('.btn-copiar');
 const mensaje = document.querySelector('.mensaje');
 
 function encriptarTexto(texto){
-    let guardado = ''
+    const vocalValores = {a : 'i', e : 'nter', i : 'mes' , o: 'ber', u : 'fat'}
+    let guardado = '';
     for (let i = 0; i < texto.length; i++) {
         guardado+=texto[i]
-        if(texto[i]=='a'){
-            guardado+=('i')
-
-        }
-        if(texto[i]=='e'){
-            guardado+=('nter')
-
-        }
-        if(texto[i]=='i'){
-            guardado+=('mes')
-
-        }
-        if(texto[i]=='o'){
-            guardado+=('ber')
-
-        }
-        if(texto[i]=='u'){
-            guardado+=('fat')
-
-        }
-    }
-    return guardado;
+        for (let vocal in vocalValores) {
+            if(texto[i] == vocal ){
+                guardado+=(vocalValores[vocal])
+            }
+        }    
+    }   
+    return guardado
 }
 
 function desencriptarTexto(texto){
