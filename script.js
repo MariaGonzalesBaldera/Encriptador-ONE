@@ -1,19 +1,20 @@
 const texto1 =  document.querySelector('.text-area1');
+const textoRespuesta = document.querySelector('.text-area2');
 const btnEncriptar = document.querySelector('.btn-encriptar');
 const btnDesencriptar = document.querySelector('.btn-desencriptar');
-const textoRespuesta = document.querySelector('.text-area2');
-const divEncontrado = document.querySelector('.div-texto2-encontrado');
 const btnCopiar = document.querySelector('.btn-copiar');
+const divEncontrado = document.querySelector('.div-texto2-encontrado');
 const mensaje = document.querySelector('.mensaje');
 
+const letras = ['ai' , 'enter' , 'imes' , 'ober' , 'ufat']
+
 function encriptarTexto(texto){
-    const vocalValores = {a : 'i', e : 'nter', i : 'mes' , o: 'ber', u : 'fat'}
     let guardado = '';
     for (let i = 0; i < texto.length; i++) {
         guardado+=texto[i]
-        for (let vocal in vocalValores) {
-            if(texto[i] == vocal ){
-                guardado+=(vocalValores[vocal])
+        for (let vocal in letras) {
+            if(texto[i] == letras[vocal][0] ){
+                guardado+=(letras[vocal].slice(1))
             }
         }    
     }   
@@ -23,28 +24,14 @@ function encriptarTexto(texto){
 function desencriptarTexto(texto){
     let textoEncriptado = texto
     let resultado = texto
-    
     for (let i = 0; i < textoEncriptado.length; i++) {
-        
-        if (textoEncriptado.includes('ai')){
-            resultado = resultado.replace('ai','a')
-        }
-        if (textoEncriptado.includes('enter')){
-            resultado = resultado.replace('enter','e')
-        }
-        if (textoEncriptado.includes('imes')){
-            resultado = resultado.replace('imes','i')
-        }
-        if (textoEncriptado.includes('ober')){
-            resultado = resultado.replace('ober','o')
-        }
-        if (textoEncriptado.includes('ufat')){
-            resultado = resultado.replace('ufat','u')
+        for (const key in letras) {
+            if (textoEncriptado.includes(letras[key])){
+                resultado = resultado.replace(letras[key] , letras[key][0])
+            }
         }
     }
-    
-    return resultado
-    
+    return resultado   
 }
 
 btnEncriptar.addEventListener('click',(event)=>{
