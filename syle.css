@@ -3,19 +3,18 @@ body {
   padding: 2em;
   background: #f3f5fc;
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .logo {
-  width: 7em;
-}
-
-section {
-  margin: 2em;
+  width: 6em;
 }
 
 .texto1 {
+  margin-left: 4em;
   display: inline-block;
-  width: 50em;
-  height: 32em;
+  width: 35em;
+  height: 30em;
   text-align: center;
   padding: 0 4em;
 }
@@ -28,6 +27,7 @@ section {
   background: #f3f5fc;
   font-size: 30px;
   margin-bottom: 12px;
+  height: 11em;
   border: none;
   resize: none;
 
@@ -44,6 +44,7 @@ section {
 }
 .btn-encriptado {
   text-align: center;
+  margin-top: 3em;
 }
 .mensaje {
   margin-bottom: 12px;
@@ -72,10 +73,10 @@ section {
 .texto2 {
   text-align: center;
   position: absolute;
-  margin: -5em -2em;
+  margin: -3em 7em;
   display: inline-block;
   width: 20em;
-  height: 37.3em;
+  height: 32em;
   border-radius: 20px;
   background: #fff;
   /* shadow */
@@ -85,7 +86,7 @@ section {
 }
 .imagen2 {
   width: 85%;
-  margin-top: 9em;
+  margin-top: 5em;
 }
 .descripcion {
   text-align: center;
@@ -106,10 +107,10 @@ section {
 .div-texto2-encontrado {
   text-align: center;
   position: absolute;
-  margin: -5em -2em;
+  margin: -3em 7em;
   display: none;
   width: 20em;
-  height: 37.3em;
+  height: 32em;
   border-radius: 20px;
   background: #fff;
   /* shadow */
@@ -129,13 +130,30 @@ section {
   margin-bottom: 1em;
   resize: none;
   border: none;
-  font-size: 18px;
+  font-size: 15px;
   color: #495057;
+
 }
 .text-area2:focus{
   outline: none;
 }
 
+.creditos{
+  background: #0a3871;
+  width: 88em;
+  height: 6.5em;
+  margin-left: -2em;
+  margin-top:2em;
+}
+p.nombre{
+  color: #d8dfe8;
+  text-align: center;
+  padding-top: 1em;
+  font-weight: bold;
+}
+.img-git{
+  width: 1.5em;
+}
 @media screen and (max-width:480px){
   .texto1{
     width: 70%;

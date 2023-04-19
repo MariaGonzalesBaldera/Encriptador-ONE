@@ -49,18 +49,15 @@ function validacion(texto){
 btnEncriptar.addEventListener('click',(event)=>{
     event.preventDefault();
     const textoIngresado = texto1.value
-    if(validacion(textoIngresado)){
-            textoRespuesta.textContent = encriptarTexto(textoIngresado)
-    }
+
+    validacion(textoIngresado) ? textoRespuesta.textContent = encriptarTexto(textoIngresado) :  ''
 })
 
 btnDesencriptar.addEventListener('click',(event)=>{
     event.preventDefault();
     const textoIngresado = texto1.value
 
-    if(validacion(textoIngresado)){
-        textoRespuesta.textContent = desencriptarTexto(textoIngresado)
-}
+    validacion(textoIngresado) ? textoRespuesta.textContent = desencriptarTexto(textoIngresado) : ''
 })
 
 btnCopiar.addEventListener('click',(event)=>{
@@ -115,4 +112,5 @@ function saltarAlert(){
         title: 'Solo letras minúsculas y sin acentos'
       })
       texto1.value='';
+      texto1.focus();
 }
