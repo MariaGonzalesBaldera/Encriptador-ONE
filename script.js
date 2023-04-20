@@ -14,22 +14,17 @@ function encriptarTexto(texto){
     for (let i = 0; i < texto.length; i++) {
         guardado+=texto[i]
         for (let vocal in letras) {
-            if(texto[i] == letras[vocal][0] ){
-                guardado+=(letras[vocal].slice(1))
-            }
+            if(texto[i] == letras[vocal][0] ) { guardado+=(letras[vocal].slice(1)) }
         }    
     }   
     return guardado
 }
 
 function desencriptarTexto(texto){
-    let textoEncriptado = texto
     let resultado = texto
-    for (let i = 0; i < textoEncriptado.length; i++) {
+    for (let i = 0; i < texto.length; i++) {
         for (const key in letras) {
-            if (textoEncriptado.includes(letras[key])){
-                resultado = resultado.replace(letras[key] , letras[key][0])
-            }
+            if (texto.includes(letras[key])) { resultado = resultado.replace(letras[key] , letras[key][0]) }
         }
     }
     return resultado   
@@ -37,14 +32,12 @@ function desencriptarTexto(texto){
 
 function validacion(texto){
     if(texto.length > 0){
-        if(!validarMayuscula(texto) && !validarAcentos(texto)){
+        if(!validarCaracteres(texto)){
             divEncontrado.style.display = 'inline-block';
             divEncontrado1.style.display ='none';
-            textoRespuesta.textContent = encriptarTexto(texto)
             return true
-        }else{
-            saltarAlert();
         }
+        saltarAlert();
     }
 }
 
@@ -63,40 +56,23 @@ btnDesencriptar.addEventListener('click',(event)=>{
 })
 
 btnCopiar.addEventListener('click',(event)=>{
-    event.preventDefault()
-    navigator.clipboard.writeText(textoRespuesta.textContent)
-
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-start',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      Toast.fire({
-        icon: 'success',
-        title: 'Copiado'
-      })
+    event.preventDefault();
+    navigator.clipboard.writeText(textoRespuesta.textContent);
+    sweetMessage('success','Copiado');
 })
 
-function validarMayuscula(texto){
-    for (let i = 0; i < texto.length; i++) {
-        if(texto[i] === texto[i].toUpperCase() && texto[i] !== texto[i].toLowerCase()){
-            return true;
-        }
-    }
-    return false;
-}
-function validarAcentos(texto) {
-    var patron = /[áéíóúÁÉÍÓÚ]/;
+function validarCaracteres(texto) {
+    var patron = /[áéíóúÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ]/;
     return patron.test(texto); 
 }
 
 function saltarAlert(){
+    sweetMessage('error', 'Solo letras minúsculas y sin acentos');
+    texto1.value='';
+    texto1.focus();
+}
+
+function sweetMessage(icono,title){
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-start',
@@ -108,11 +84,8 @@ function saltarAlert(){
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-      
       Toast.fire({
-        icon: 'error',
-        title: 'Solo letras minúsculas y sin acentos'
+        icon: icono,
+        title: title
       })
-      texto1.value='';
-      texto1.focus();
 }

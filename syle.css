@@ -164,11 +164,19 @@ p.nombre{
   .div-principal{
     width: 100%;
   }
+  .mensaje{
+    text-align:left;
+  }
+  .div-secundario{
+    margin-top: 2em;
+  }
+  .descripcion{
+    padding-top: 1em;
+  }
   .imagen2{
     display: none;
   }
   .creditos{
-    /*margin: 10em;*/
     width: 36em;
   }
  }
