@@ -3,6 +3,7 @@ const textoRespuesta = document.querySelector('.text-area2');
 const btnEncriptar = document.querySelector('.btn-encriptar');
 const btnDesencriptar = document.querySelector('.btn-desencriptar');
 const btnCopiar = document.querySelector('.btn-copiar');
+const divEncontrado1 = document.querySelector('.texto2');
 const divEncontrado = document.querySelector('.div-texto2-encontrado');
 const mensaje = document.querySelector('.mensaje');
 
@@ -38,6 +39,7 @@ function validacion(texto){
     if(texto.length > 0){
         if(!validarMayuscula(texto) && !validarAcentos(texto)){
             divEncontrado.style.display = 'inline-block';
+            divEncontrado1.style.display ='none';
             textoRespuesta.textContent = encriptarTexto(texto)
             return true
         }else{
